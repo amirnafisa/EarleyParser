@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify
 from pcfg_grammar import *
 from sentence import *
 from parse2 import *
+import json
 
 
 app = Flask(__name__)
@@ -15,10 +16,12 @@ def app_main():
 @app.route('/parse/')
 def parse():
     sentence = request.args.get('sentence')
-    print("Sentence received is: ", sentence)
     parsed_sen = parse_sen(PCFG_Grammar('test.gr'), Sentence(sentence), speedup=True)
-    print("Parsed sentence is: ", parsed_sen)
-    return jsonify({'sentence':sentence,'parse':parsed_sen});
+    grammar = []
+    with open('test.gr', 'r') as f_gr:
+        for line in f_gr:
+            grammar.append(line)
+    return jsonify({'sentence':sentence,'parse':parsed_sen, 'grammar':grammar});
 
 
 if __name__ == '__main__':

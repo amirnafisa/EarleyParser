@@ -1,10 +1,30 @@
-
+function print_grammar(grammar) {
+    if(grammar) {
+        return (<table>{
+            grammar.map((line, key) => {
+                let comps = line.split("\t");
+                return (
+                    <tbody key={key}>
+                        <td>
+                            {comps[0]}
+                        </td>
+                        <td className="col">
+                            {comps[1]}
+                        </td>
+                        <td className="col">
+                            {comps.slice(2).join(", ")}
+                        </td>
+                    </tbody>
+                );
+            })}</table>);
+    }
+}
 
 class Parser extends React.Component {
     _isMounted = true;
     constructor(props) {
         super(props);
-        this.state = {parse:'', sentence:''}
+        this.state = {parse:'', sentence:'', grammar:''}
     }
 
     componentWillUnmount() {
@@ -13,13 +33,12 @@ class Parser extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
+        this._isMounted &&  this.getParse();
     }
 
     async getParse () {
-        var sentence = encodeURIComponent(this.state.sentence.trim());
-        this._isMounted && this.setState( {
-            parse: (await (await fetch("/parse?sentence="+sentence)).json())['parse']
-        });
+        const sentence = encodeURIComponent(this.state.sentence.trim());
+        this._isMounted && this.setState( (await (await fetch("/parse?sentence=" + sentence)).json()));
     }
 
     handleChange(event) {
@@ -32,21 +51,32 @@ class Parser extends React.Component {
     }
 
     render() {
+
         return(
             <div>
-                <h1>Earley Parser</h1>
-                <h5>By Nafisa Ali Amir</h5>
+                <div className="common title">
+                    <h1 className="inline">Earley Parser</h1>
+                    <h5 className="inline">By Nafisa Ali Amir</h5>
+                </div>
+                <div className="common form">
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                        <label>
+                            Input Sentence:
+                            <input type="text" value={this.state.sentence} onChange={this.handleChange.bind(this)} />
+                        </label>
+                        <input className="button" type="submit" value="Parse" />
+                    </form>
+                    <br/>
+                    Parsed Output:
+                    {this.state.parse}
+                </div>
+                <div className="common grammar">
+                   <h2>Grammar (PCFG)</h2>
+                    {print_grammar(this.state.grammar)}
+                </div>
 
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <label>
-                        Input Sentence:
-                        <input type="text" value={this.state.sentence} onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <input type="submit" value="Parse" />
-                </form>
 
-                <p>Parsed Output:
-                    {" "+this.state.parse}</p>
+
             </div>
         );
     }
