@@ -1,13 +1,13 @@
-
-import sys
 def filter_grammar(gr, tokens):
     unused_term = gr.get_terminals() - set(tokens)
     gr.remove_terminals(unused_term)
+
 
 def do_discard(n_tokens, score):
     if (score > n_tokens*13):
         return True
     return False
+
 
 def extract_R_table(gr):
     RTable = {}
@@ -22,6 +22,7 @@ def extract_R_table(gr):
             RTable[key].add(rule)
 
     return RTable
+
 
 def extract_left_parent_table(gr):
     LParentTable = {}
