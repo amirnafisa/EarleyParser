@@ -1,69 +1,82 @@
-body{
-    background: radial-gradient(circle at 100%, white, azure 75%, lightskyblue 25%, azure 90%) no-repeat fixed;
-}
-
-html *{
+body, html{
+    font-size: 20px;
+    border-radius: 10px;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.grammar {
-    border-radius: 5px;
-    font-palette: dark;
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
-    height: 500px;
-    line-height: 20px;
-    margin: 30px;
-}
-
-.common {
-    margin: 30px;
-    padding: 30px;
-    border-radius: 10px;
-    background: linear-gradient(#9CA7CE, azure)
-}
-
-label {
-    margin: 5px;
-}
-
 input {
-    margin: 5px;
+    margin: 5px 15px auto auto;
     border-radius: 4px;
-    box-shadow: pink;
     background: azure;
+    height: 30px;
+    width: 400px;
+    min-width: 10px;
+    font-size: 20px;
 }
 
 .button {
     background: #10607E;
     color: white;
     padding: 3px;
+    width: 60px;
+}
+.title {
+    background: #2C5DBF;
+    color: white;
+    border-radius: 10px;
 }
 
-h5 {
-    display: inline;
-    position: relative;
-    bottom: 15px;
-    right: 10px;
-    float: right;
+.grammar {
+    display: inline-block;
+    height: 50vh;
+    overflow-y: scroll;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px;
+    padding: 5px;
+    background-color: azure;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+    height: 4px;
+
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
-h1 {
+.width100 {
+    width: 100%;
+}
+
+.input-form {
+    vertical-align: top;
+}
+
+.inline {
     display: inline;
-    position: relative;
-    bottom: 30px;
-    left: 10px;
+}
+
+.float-left {
     float: left;
 }
 
-table, td{
-    border: 1px solid #10607E;
-    margin: 0;
-    padding: 5px;
-    background: #10607E;
+.float-right {
+    float: right;
 }
 
-td{
-    background: azure;
-    color: #10607E;
+.margin5 {
+    margin: 5px 5px 5px 5px;
 }
 
+.footer {
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+    text-align: right;
+    color: gray;
+}
