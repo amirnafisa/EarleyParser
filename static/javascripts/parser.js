@@ -9,13 +9,13 @@ function print_grammar(grammar) {
                         <td>
                             [{comps[0]}]
                         </td>
-                        <td className="col">
+                        <td>
                             {comps[1]}
                         </td>
-                        <td className="col">
+                        <td>
                             ==>
                         </td>
-                        <td className="col">
+                        <td>
                             {comps.slice(2)[0].split(" ").join(", ")}
                         </td>
                     </tr>
@@ -59,17 +59,13 @@ class Parser extends React.Component {
 
         return(
             <div>
-                <table className="title width100">
-                    <tbody>
-                        <tr>
-                            <td style={{width:"50%"}}>
-                                <h1 className="float-left margin5">Earley Parser</h1>
-                            </td>
-                            <td style={{width:"50%"}}>
-                                <h5 className="float-right margin5">By Nafisa Ali Amir</h5>
-                            </td>
-                        </tr>
 
+                <table className="sticky">
+                    <tbody>
+                    <tr>
+                        <td className="title">Earley Parser</td>
+                        <td className="float-right subtitle">By Nafisa Ali Amir</td>
+                    </tr>
                     </tbody>
                 </table>
                 <table className="width100 float-left">
