@@ -1,3 +1,23 @@
+/*
+    Colour Theme:
+        Title Bar -
+            Background: #641b22
+            Text: white
+        Body -
+            Background: white
+            Text: black
+        Input -
+            Background: azure
+            Text: black
+        Button -
+            Background: azure
+            Text: white
+        Grammar Table -
+            Background: azure
+            Text: black
+        Footer -
+            Text: gray
+*/
 body, html{
     font-size: large;
     border-radius: 1em;
@@ -14,46 +34,35 @@ input {
     height: 1.8em;
     width: 30vw;
     font-size: 0.7em;
-    vertical-align: middle;
 }
 
-.button {
-    background: #10607E;
-    color: white;
-    padding: 0.2em;
-    width: 5em;
-    vertical-align: middle;
+td {
+    width: fit-content;
+    padding: 0 0.5em 0 0.5em;
 }
 
-.grammar {
-    display: inline-block;
-    max-height: fit-content;
-    width: 30vw;
-    overflow-y: scroll;
-    border-style: solid;
-    border-width: 0.1em;
-    margin: 0.5em;
-    padding: 0.5em;
-    background-color: azure;
+.wrap-whitespace {
+    white-space: pre-wrap;
 }
-::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 0.4em;
-    height: 0.4em;
 
+.text-right {
+    text-align: right;
 }
-::-webkit-scrollbar-thumb {
-    border-radius: 0.4em;
-    background-color: rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+
+.default-cursor {
+    cursor: default;
 }
 
 .width100 {
     width: 100%;
 }
 
-td.input-form {
+.align-top {
     vertical-align: top;
+}
+
+.align-middle {
+    vertical-align: middle;
 }
 
 .inline {
@@ -72,15 +81,30 @@ td.input-form {
     margin: 0.5em;
 }
 
-.footer {
-    float: right;
-    text-align: right;
+#footer {
     color: gray;
-    white-space: pre-wrap;
     margin: 1em;
 }
 
-.sticky {
+#button {
+    background: #10607E;
+    color: white;
+    padding: 0.2em;
+    width: 5em;
+    cursor: pointer;
+}
+
+#grammar {
+    display: inline-block;
+    overflow-y: scroll;
+    border-style: solid;
+    border-width: 0.1em;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: azure;
+}
+
+#bar-sticky {
     background: #641b22;
     color: white;
     width: 100%;
@@ -93,25 +117,28 @@ td.input-form {
     height: 2em;
 }
 
-.title {
-    cursor: default;
+#title {
+    position: absolute;
+    left: 0;
+    bottom: 0.1em;
     font-weight: bold;
     font-size: larger;
 }
 
-td {
-    width: fit-content;
-    padding: 0 0.5em 0 0.5em;
-}
-
-td.title {
-    position: absolute;
-    left: 0;
-    bottom: 0.1em;
-}
-td.subtitle {
+#subtitle {
     position: absolute;
     right: 0;
     bottom: 0.1em;
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0.4em;
+    height: 0.4em;
+
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0.4em;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}

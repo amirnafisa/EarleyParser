@@ -59,53 +59,52 @@ class Parser extends React.Component {
 
         return(
             <div>
-
-                <table className="sticky">
+                <table id="bar-sticky">
                     <tbody>
                     <tr>
-                        <td className="title">Earley Parser</td>
-                        <td className="float-right subtitle">By Nafisa Ali Amir</td>
+                        <td id="title" className="default-cursor">Earley Parser</td>
+                        <td id="subtitle" className="float-right default-cursor">By Nafisa Ali Amir</td>
                     </tr>
                     </tbody>
                 </table>
                 <table className="width100 float-left">
                     <tbody>
                     <tr>
-                        <td className="input-form">
+                        <td className="align-top">
                             <form onSubmit={this.handleSubmit.bind(this)}>
                                 <label>
                                     <p><b>Input Sentence</b></p>
                                     <p className="inline">
-                                        <input type="text" value={this.state.sentence} onChange={this.handleChange.bind(this)} />
+                                        <input className="align-middle" type="text" value={this.state.sentence} onChange={this.handleChange.bind(this)} />
                                     </p>
                                 </label>
-                                <input className="button" type="submit" value="Parse" />
+                                <input id="button" className="align-middle" type="submit" value="Parse" />
                             </form>
                             <br/>
                             <br/>
                             {this.state.parse===''?null:
                                 <div className="output">
                                     <b>Parsed Output</b>
-                                    <p>{this.state.parse}</p>
+                                    <p className="wrap-whitespace">{this.state.parse}</p>
                                 </div>
                             }
                         </td>
-                        <td className="float-right">
+                        <td className="float-right default-cursor">
                             <p><b>Grammar (PCFG)</b></p>
-                            <div className="grammar">
+                            <div id="grammar">
                                 {print_grammar(this.state.grammar)}
                             </div>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <div className="footer">
-                    <i>
+                <div id="footer" className="text-right wrap-whitespace float-right">
+                    <i className="default-cursor">
                         Project completed in December 2018 as a part of Natural Language Processing course by Professor
                         Jason Eisner at Johns Hopkins University.
                     </i>
                     <br/>
-                    <a href="https://github.com/amirnafisa/EarleyParser" style={{textAlign:"right"}}>
+                    <a href="https://github.com/amirnafisa/EarleyParser">
                     Source Code
                     </a>
                 </div>
